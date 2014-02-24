@@ -6,7 +6,7 @@ public class BinTree {
 		
 		if(root==null){
 			root=newNode;
-		System.out.println("root inserted"+newNode.key);
+		System.out.println("root inserted"+newNode.key);  //just for check weather work or not
 		}
 		else {
 			Node curnt=root;
@@ -17,7 +17,7 @@ public class BinTree {
 					curnt=curnt.leftChld;
 					if(curnt== null){
 						parnt.leftChld=newNode;
-						System.out.println("inserted"+newNode.key);
+						System.out.println("inserted"+newNode.key);  //just for check weather work or not
 						return;
 					}
 					
@@ -25,7 +25,7 @@ public class BinTree {
 					curnt=curnt.rightChld;
 					if(curnt== null){
 						parnt.rightChld=newNode;
-						System.out.println("inserted"+newNode.key);
+						System.out.println("inserted"+newNode.key);  //just for check weather work or not
 						return;
 					}
 				}

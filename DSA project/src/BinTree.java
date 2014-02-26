@@ -45,5 +45,7 @@ public class BinTree {
 	public static void printOut(Node input){
 			System.out.println(input.title +"and aurthur"+input.autFname+input.autLname);
 			System.out.println("isbn is "+input.isbn);
+			System.out.println("Key is "+input.key);
+			
 	}
 }

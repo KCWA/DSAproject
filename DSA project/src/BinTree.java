@@ -13,7 +13,7 @@ public class BinTree {
 			Node parnt;
 			while (true) {
 				parnt=curnt;
-				if(newNode.key<curnt.key){
+				if(newNode.getKey()<curnt.getKey()){
 					curnt=curnt.leftChld;
 					if(curnt== null){
 						parnt.leftChld=newNode;
@@ -29,8 +29,7 @@ public class BinTree {
 						return;
 					}
 				}
-			}
-			
+			}			
 			
 		}
 		System.out.println("inserted"+newNode.key);

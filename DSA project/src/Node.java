@@ -15,16 +15,36 @@ public class Node {
 		this.autFname = autFname;
 		this.autLname = autLname;
 		this.isbn = isbn;
-		this.key = key;
+		this.key = hashcode(title);
+	}
+	private int hashcode(String name) {
+		int hash=500;
+		name=name.toLowerCase();
+		int len=name.length();
+		int cnt=name.indexOf("java");
+		if(cnt>=0){
+			System.out.println("book contain java "+cnt);
+			hash-=cnt;
+			hash-=len;
+		}else{
+			cnt=name.indexOf("php");
+			if(cnt>=0){
+				System.out.println("book contain php "+cnt);
+				hash+=cnt;
+				hash+=len;
+			}else{
+				System.out.println("book contain other "+cnt);
+				hash+=500;
+			}
+		}
+		return hash;
 	}
 	public int getKey() {
 		return key;
+	}	
+	
+	public int hashcode(int i){
+		return i;
 	}
-	public void setKey(int key) {
-		this.key = key;
-	}
-	
-	
-	
 	
 }

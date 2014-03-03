@@ -24,6 +24,8 @@ public class test {
 		
 		nod=new Node("php", "inesh ", "dhanushka", 1205);
 		bt.insert(nod);
+		nod=new Node("php with html", "ineshda ", "gundhanushka", 1255);
+		bt.insert(nod);
 		
 		bt.inOrder(bt.root);
 		

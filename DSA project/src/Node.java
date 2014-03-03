@@ -21,16 +21,17 @@ public class Node {
 		name=name.toLowerCase();
 		int len=name.length();
 		int cnt=name.indexOf("java");
+		int c0=name.indexOf("a");
 		if(cnt>=0){
 			System.out.println("book contain java "+cnt);
 			hash-=cnt;
-			hash-=len;
+			hash=hash-len-c0;
 		}else{
 			cnt=name.indexOf("php");
 			if(cnt>=0){
 				System.out.println("book contain php "+cnt);
 				hash+=cnt;
-				hash+=len;
+				hash=hash+len+c0;
 			}else{
 				System.out.println("book contain other "+cnt);
 				hash+=500;

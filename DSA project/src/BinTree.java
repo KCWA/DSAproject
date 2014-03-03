@@ -49,11 +49,13 @@ public class BinTree {
 			System.out.println("Key is "+input.key);
 			
 	}
-	Node current=root;
-	Node parent=root;
-	boolean isLeftch=true;
+	Node current;
+	Node parent;
+	boolean isLeftch=true;;
 	public Node findDelNode(int delKey){
-		
+		current=root;
+		parent=root;
+		//isLeftch=true;
 		while(current.getKey()!=delKey){	//go through it and search
 			parent=current;
 			if(delKey<current.getKey()){	//go to left subtree
@@ -71,40 +73,40 @@ public class BinTree {
 	}
 	
 	
-	public boolean delete(Node current){
-		if(current.leftChld==null&& current.rightChld==null){	// if node is leaf
-			if(current==root)
+	public boolean deleteNode(Node curnt){
+		if (curnt.leftChld==null && curnt.rightChld==null) {	//if no child
+			if(curnt==root)
 				root=null;
 			else if(isLeftch)
 				parent.leftChld=null;
-			else
+			else 
 				parent.rightChld=null;
-		}else if(current.rightChld==null){	//if right child is null,replace leftsubtree
-			if(current==root)
-				root=current.leftChld;
-			else if(isLeftch)				//left child of parent
-				parent.leftChld=current.leftChld;
-			else							//right child of parent
-				parent.leftChld=current.rightChld;
-		}else if(current.rightChld==null){  //if left child is null,replace rightsubtree
-			if(current==root)
-				root=current.rightChld;
+		}else if(curnt.rightChld==null){		//no rightchild replace left sub tree
+			if(curnt==root)
+				root=curnt.leftChld;
 			else if(isLeftch)
-				parent.leftChld=current.rightChld;
+				parent.leftChld=curnt.leftChld;
 			else
-				parent.rightChld=current.rightChld;				
-		}else{								// has two children
-			Node successor=getSuccessor(current);		//call the function to find successor
-			if(current==root)
-				root=successor;
+				parent.rightChld=curnt.leftChld;
+		}else if(curnt.leftChld==null){			//no left child replace right subtree
+			if(curnt==root)
+				root=curnt.rightChld;
 			else if(isLeftch)
-				parent.leftChld=successor;
+				parent.leftChld=curnt.rightChld;
 			else
-				parent.rightChld=successor;
-			successor.leftChld=current.leftChld;
+				parent.rightChld=curnt.rightChld;
+		}else{									// have left ,right child
+			Node sucssesor=getSuccessor(curnt);
+			if(curnt==root)
+				root=sucssesor;
+			else if(isLeftch)
+				parent.leftChld=sucssesor;
+			else
+				parent.rightChld=sucssesor;
+			sucssesor.leftChld=curnt.leftChld;
 		}
 		
-	return true;
+		return true;
 	}
 	
 	private Node getSuccessor(Node delNode){

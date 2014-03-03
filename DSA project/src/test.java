@@ -4,25 +4,25 @@ public class test {
 
 	public static void main(String[] args) {
 		BinTree bt=new BinTree();
-		Node nod=new Node("java", "man", "test", 120, 50);
+		Node nod=new Node("java programing", "man", "test", 120);
 		bt.insert(nod);
 		
-		nod=new Node("php", "ben", "log", 1524, 25);
+		nod=new Node(" help php", "ben", "log", 1524);
 		bt.insert(nod);
 		
-		nod=new Node("php help", "benten", "log laf", 1523, 25);
+		nod=new Node("php help", "benten", "log laf", 1523);
 		bt.insert(nod);
 		
-		nod=new Node("java help", "katty ", "sierra", 1523, 15);
+		nod=new Node("java help", "katty ", "sierra", 1523);
 		bt.insert(nod);
 		
-		nod=new Node("java", "katy ", "Sierra", 1205, 50);
+		nod=new Node("java", "katy ", "Sierra", 1205);
 		bt.insert(nod);
 		
-		nod=new Node("java fx", "katy sys ", "Sierrasdfdf", 1206, 24);
+		nod=new Node("java fx", "katy sys ", "Sierrasdfdf", 1206);
 		bt.insert(nod);
 		
-		nod=new Node("php", "inesh ", "dhanushka", 1205, 60);
+		nod=new Node("php", "inesh ", "dhanushka", 1205);
 		bt.insert(nod);
 		
 		bt.inOrder(bt.root);

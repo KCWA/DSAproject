@@ -47,4 +47,7 @@ public class Node {
 		return i;
 	}
 	
+	public int getISBN(){
+		return isbn;
+	}
 }

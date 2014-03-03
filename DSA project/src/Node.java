@@ -8,8 +8,7 @@ public class Node {
 	Node leftChld;
 	Node rightChld;
 	
-	public Node(String title, String autFname, String autLname, int isbn,
-			int key) {
+	public Node(String title, String autFname, String autLname, int isbn) {
 		
 		this.title = title;
 		this.autFname = autFname;

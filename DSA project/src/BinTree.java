@@ -172,4 +172,18 @@ public class BinTree {
 		}		
 		return isContain;
 	}
+	
+	public void printRelate(Node temp,String tag){
+		
+		if(temp!=null){
+			printRelate(temp.leftChld,tag );
+			
+			int cnt=temp.title.indexOf(tag);
+			if(cnt>=0){
+				System.out.println(temp.title);
+			}
+			printRelate(temp.rightChld,tag );
+		}
+		
+	}
 }

@@ -134,16 +134,41 @@ public class BinTree {
 			if(b==true){				
 				out=true;			
 				return out;
-			}
+			}			
 			checkISBN(temproot.leftChld,isbn);
 			checkISBN(temproot.rightChld,isbn);
 		}
 		return out;
 	}
+	Node match;
+	public Node checkISBNDel(Node temproot,int isbn){
+		boolean b=false;	
+		if(temproot!=null){
+			if(temproot.leftChld!=null || temproot.rightChld!=null)
+				parent=temproot;
+			checkISBNDel(temproot.leftChld,isbn);	
+			current=temproot;
+			System.out.println("come to chek func current is "+current.getISBN());
+			b=matchISBN(current,isbn);
+			System.out.println("isbn is "+temproot.isbn);
+			if(b==true){
+				
+					match=current;
+					System.out.println("isbn is------------- "+temproot.isbn);
+			}
+			
+			checkISBNDel(temproot.rightChld,isbn);	
+			if(temproot.leftChld!=null || temproot.rightChld!=null)
+				parent=temproot;
+			
+		}
+		return match;
+	}
 	public boolean matchISBN(Node temp,int isbn){
 		boolean isContain=false;
 		if(temp.getISBN()==isbn){			
 			isContain=true;
+			System.out.println("=============== isbn matched  "+isContain);
 		}		
 		return isContain;
 	}

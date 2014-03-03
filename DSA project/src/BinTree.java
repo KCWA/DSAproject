@@ -124,4 +124,27 @@ public class BinTree {
 		}
 		return sucssr;
 	}
+	
+	boolean out=false;
+	public boolean checkISBN(Node temproot,int isbn){
+		boolean b=false;
+		
+		if(temproot!=null){			
+			b=matchISBN(temproot,isbn);
+			if(b==true){				
+				out=true;			
+				return out;
+			}
+			checkISBN(temproot.leftChld,isbn);
+			checkISBN(temproot.rightChld,isbn);
+		}
+		return out;
+	}
+	public boolean matchISBN(Node temp,int isbn){
+		boolean isContain=false;
+		if(temp.getISBN()==isbn){			
+			isContain=true;
+		}		
+		return isContain;
+	}
 }

@@ -20,7 +20,7 @@ public class Node  {
 	public Node() {			//Default constructor
 		
 	}
-	public int hashcode(String name) {		// generate unique number for each book 
+	public int hashcode(String name) {		// generate unique number for each  book 
 		int hash=500;
 		name=name.toLowerCase();
 		int len=name.length();

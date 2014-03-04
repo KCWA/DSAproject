@@ -14,15 +14,17 @@ public class ManiApp {
 		
 		controller cnt=new controller();
 		ManiApp main=new ManiApp();
-		cnt.inputBook("java", "auth", "autLname", 120);			//Initializing some books before present
-		cnt.inputBook("php ", "auth", "autLname", 123);		
-		cnt.inputBook(" help php", "ben", "log", 1528);
-		cnt.inputBook(" help java", "ben", "log", 1320);
-		cnt.inputBook("php help", "benten", "log laf", 1523);		
-		cnt.inputBook("java", "katy ", "Sierra", 1255);
-		cnt.inputBook("java fx", "katy sys ", "Sierrasdfdf", 1206);
-		cnt.inputBook("php", "inesh ", "dhanushka", 1205);
-		cnt.inputBook("php with html", "ineshda ", "gundhanushka", 1295);//9
+		cnt.inputBook("Effective Java Programming Language Guide ", "Joshua ", "Bloch", 120);			//Initializing some books before present
+		cnt.inputBook("PHP and MySQL Web Development", "Luke", "Welling", 123);		
+		cnt.inputBook("Not Just Java", "Peter", "van", 1528);
+		cnt.inputBook("PHP 4 BibleTim", "Tim", "Converse", 1320);
+		cnt.inputBook("Head First Java", "Kathy", "Sierra", 1523);		
+		cnt.inputBook("Programming PHP", "Kevin", "Tatroey", 1255);
+		cnt.inputBook("Head First PHP & MySQL", "Lynn", " Beighley", 1206);
+		cnt.inputBook("Java Concurrency in Practice", "Brian", "Goetz", 1205);
+		cnt.inputBook("OCA Java SE 7 Programmer", " Mala", "Gupta", 1295);//9
+		cnt.inputBook("Java in a Box", "Bruce", "Eckel", 1863);
+		cnt.inputBook("Java for Dummies	", "Barry", "Burd ", 1741);
 		
 	do{																// iterate operations until exit
 		System.out.println("\t\t ~! Bookshop database !~");		

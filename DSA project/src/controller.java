@@ -71,4 +71,20 @@ public class controller {
             System.out.println("Sorry No book named "+name);
        
     }
+    public void delByIsbn(int isbn){
+        Node node=new Node();       
+        node=bn.checkISBNDel(bn.root, isbn);
+        if(node!=null){
+            boolean cnfrm=bn.deleteNode(node);
+                    if(cnfrm){
+                        BinTree.printOut(node);
+                        System.out.println("The record is deleted");
+                    }
+                    else
+                        System.out.println("The record deleted");
+        }else
+            System.out.println("Sorry No book contain "+isbn);
+       
+   
+    }
 }

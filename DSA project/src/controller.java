@@ -51,4 +51,7 @@ public class controller {
 			System.out.println("No book named  "+isbn);
 		
 	}
+	public void printRelTag(String tag){
+		bn.printRelate(bn.root, tag);		
+	}
 }

@@ -54,4 +54,21 @@ public class controller {
 	public void printRelTag(String tag){
 		bn.printRelate(bn.root, tag);		
 	}
+	public void delByName(String name){
+        Node node=new Node();
+        int key=node.hashcode(name);
+        System.out.println(key);
+        node=bn.findDelNode(key);
+        if(node!=null){
+            boolean cnfrm=bn.deleteNode(node);
+                    if(cnfrm){
+                        BinTree.printOut(node);
+                        System.out.println("The record is deleted");
+                    }
+                    else
+                        System.out.println("The record deleted");
+        }else
+            System.out.println("Sorry No book named "+name);
+       
+    }
 }

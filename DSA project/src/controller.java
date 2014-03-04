@@ -25,4 +25,8 @@ public class controller {
 		return false;
 		
 	}
+	public void printAll(){
+		System.out.println("******************************current book list***********************************");
+		bn.inOrder(bn.root);
+	}
 }

@@ -172,7 +172,7 @@ public class ManiApp {
 			System.out.println(prompt);
 			System.out.flush();
 			try {
-				return stdin.readLine();				//take user input
+				return stdin.readLine();				//take user input from console
 			} catch (IOException e) {
 				return "error";
 			}

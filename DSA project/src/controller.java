@@ -29,4 +29,15 @@ public class controller {
 		System.out.println("******************************current book list***********************************");
 		bn.inOrder(bn.root);
 	}
+	public void searchName(String name){
+		Node n=new Node();
+		int hash=n.hashcode(name);
+		n=bn.findDelNode(hash);
+		if(n==null)
+			System.out.println("No book named  "+name);
+		else if(n.title.equalsIgnoreCase(name))
+			BinTree.printOut(n);
+		else
+			System.out.println("No book named  "+name);
+	}
 }

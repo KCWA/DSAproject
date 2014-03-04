@@ -40,4 +40,15 @@ public class controller {
 		else
 			System.out.println("No book named  "+name);
 	}
+	public void searchISBN(int isbn){
+		Node n=new Node();
+		n=bn.checkISBNDel(bn.root, isbn);
+		if(n==null)
+			System.out.println("No book named  "+isbn);
+		else if(n.isbn==isbn)
+			BinTree.printOut(n);
+		else
+			System.out.println("No book named  "+isbn);
+		
+	}
 }

@@ -3,4 +3,26 @@ public class controller {
 	public controller() {		
 		bn = new BinTree();
 	}
+	public boolean inputBook(String title, String autFname, String autLname, int isbn){
+		
+		boolean bkTypeJv=checkBookCntnt(title, "java");
+		boolean bkTypeph=checkBookCntnt(title, "php");
+		if(bkTypeJv!=false||bkTypeph!=false){
+			//System.out.println("==============book contain java or php"+isbn);
+		
+				boolean cntainIsbn=bn.checkISBN(bn.root, isbn);
+//					System.out.println("checking isbn--------        "+isbn+cntainIsbn);
+					if(!cntainIsbn){
+								Node newNode=new Node(title, autFname, autLname, isbn);
+								bn.insert(newNode);
+						}else
+							System.out.println("book already have isbn");
+						
+						
+						return true;
+		}else
+			System.out.println("!!!!!!!!!!!!!book dont relate to php or java");
+		return false;
+		
+	}
 }

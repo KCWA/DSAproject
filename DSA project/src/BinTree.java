@@ -1,24 +1,28 @@
 
+
+
 public class BinTree {
-	Node root;
-	
+	Node root;		// keep track of the tree
+	Node current;
+	Node parent;
+	boolean isLeftch=true;
+	boolean out=false;
+	Node match=null;
 	public void insert(Node newNode){
 		
 		if(root==null){
 			root=newNode;
-			root.key=root.hashcode(500);
-		System.out.println("root inserted  "+newNode.key);  //just for check weather work or not
+			root.key=root.hashcode(500);	//set root key as 500 by call method
 		}
-		else {
+		else {						// if not root
 			Node curnt=root;
 			Node parnt;
-			while (true) {
+			while (true) {			//travese trough the tree to find correct place and joint to tree
 				parnt=curnt;
 				if(newNode.getKey()<curnt.getKey()){
 					curnt=curnt.leftChld;
 					if(curnt== null){
-						parnt.leftChld=newNode;
-						System.out.println("inserted "+newNode.key+ "============");  //just for check weather work or not
+						parnt.leftChld=newNode;					
 						return;
 					}
 					
@@ -26,14 +30,14 @@ public class BinTree {
 					curnt=curnt.rightChld;
 					if(curnt== null){
 						parnt.rightChld=newNode;
-						System.out.println("inserted"+newNode.key+"============");  //just for check weather work or not
+
 						return;
 					}
 				}
 			}			
 			
 		}
-		System.out.println("inserted"+newNode.key);
+
 	}
 	
 	public void inOrder(Node tempRoot){
@@ -44,19 +48,18 @@ public class BinTree {
 		}
 	}
 	public static void printOut(Node input){
-			System.out.println(input.title +"and aurthur"+input.autFname+input.autLname);
-			System.out.println("isbn is "+input.isbn);
-			System.out.println("Key is "+input.key);
+			System.out.println("------------------------------------");
+			System.out.println("Book title  :"+input.title);
+			System.out.println("Author name :"+input.autFname +" "+input.autLname);
+			System.out.println("ISBN is     : "+input.isbn);
+			
 			
 	}
-	Node current;
-	Node parent;
-	boolean isLeftch=true;;
+	
 	public Node findDelNode(int delKey){
-		current=root;
-		parent=root;
-		//isLeftch=true;
-		while(current.getKey()!=delKey){	//go through it and search
+		current=root;				// to keep track of current node
+		parent=root;				// to keep track of parent of current node
+		while(current.getKey()!=delKey){	//go through tree and search to equal names(using key that generate from title)
 			parent=current;
 			if(delKey<current.getKey()){	//go to left subtree
 				isLeftch=true;
@@ -96,7 +99,7 @@ public class BinTree {
 			else
 				parent.rightChld=curnt.rightChld;
 		}else{									// have left ,right child
-			Node sucssesor=getSuccessor(curnt);
+			Node sucssesor=getSuccessor(curnt);		//find the best node to replace
 			if(curnt==root)
 				root=sucssesor;
 			else if(isLeftch)
@@ -113,7 +116,7 @@ public class BinTree {
 		Node sucsParent=delNode;
 		Node sucssr=delNode;
 		Node crnt=delNode.rightChld;		//go to right side
-		while(crnt!=null){					//untill find node without leftchild
+		while(crnt!=null){					//Until find node without leftchild
 			sucsParent=sucssr;
 			sucssr=crnt;
 			crnt=crnt.leftChld;				//go to left
@@ -123,52 +126,51 @@ public class BinTree {
 			sucssr.rightChld=delNode.rightChld;
 		}
 		return sucssr;
-	}
+	}	
 	
-	boolean out=false;
-	public boolean checkISBN(Node temproot,int isbn){
+	public boolean checkISBN(Node temproot,int isbn){		// recursively traverse tree and find the ISBN
 		boolean b=false;
 		
-		if(temproot!=null){			
-			b=matchISBN(temproot,isbn);
+		if(temproot!=null){	
+			
+			b=matchISBN(temproot,isbn);		// check ISBN match
+			
 			if(b==true){				
-				out=true;			
+				out=true;	
+				//System.out.println("return it as contain");
 				return out;
-			}			
-			checkISBN(temproot.leftChld,isbn);
-			checkISBN(temproot.rightChld,isbn);
-		}
+				
+			}
+			out=false;
+			checkISBN(temproot.leftChld,isbn);		//call recursive and go to left subtree
+			checkISBN(temproot.rightChld,isbn);		//call recursive and go to right subtree
+		}		
 		return out;
 	}
-	Node match;
-	public Node checkISBNDel(Node temproot,int isbn){
+
+	public Node checkISBNDel(Node temproot,int isbn){	//find the node(book object with ISBN
+		
 		boolean b=false;	
 		if(temproot!=null){
 			if(temproot.leftChld!=null || temproot.rightChld!=null)
-				parent=temproot;
-			checkISBNDel(temproot.leftChld,isbn);	
+				parent=temproot;				//keep the track of parent of current node
+			checkISBNDel(temproot.leftChld,isbn);		// call recursively and go to left subtree
 			current=temproot;
-			System.out.println("come to chek func current is "+current.getISBN());
-			b=matchISBN(current,isbn);
-			System.out.println("isbn is "+temproot.isbn);
-			if(b==true){
-				
+			b=matchISBN(current,isbn);		//check if ISBN is contain
+			if(b==true){					
 					match=current;
-					System.out.println("isbn is------------- "+temproot.isbn);
-			}
-			
-			checkISBNDel(temproot.rightChld,isbn);	
+					}			
+			checkISBNDel(temproot.rightChld,isbn);	// call recursively and go to right subtree
 			if(temproot.leftChld!=null || temproot.rightChld!=null)
-				parent=temproot;
-			
-		}
+				parent=temproot;			
+		}		
 		return match;
 	}
 	public boolean matchISBN(Node temp,int isbn){
 		boolean isContain=false;
 		if(temp.getISBN()==isbn){			
 			isContain=true;
-			System.out.println("=============== isbn matched  "+isContain);
+
 		}		
 		return isContain;
 	}
@@ -176,13 +178,13 @@ public class BinTree {
 	public void printRelate(Node temp,String tag){
 		
 		if(temp!=null){
-			printRelate(temp.leftChld,tag );
-			
-			int cnt=temp.title.indexOf(tag);
+			printRelate(temp.leftChld,tag );	// call recursively and go to left subtree
+			temp.title=temp.title.toLowerCase();
+			int cnt=temp.title.indexOf(tag);		//check for title contain tag
 			if(cnt>=0){
-				System.out.println(temp.title);
+				printOut(temp);					// print the tag contain node
 			}
-			printRelate(temp.rightChld,tag );
+			printRelate(temp.rightChld,tag );	// call recursively and go to right subtree
 		}
 		
 	}

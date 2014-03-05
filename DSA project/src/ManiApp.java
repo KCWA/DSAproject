@@ -144,13 +144,13 @@ public class ManiApp {
 			System.out.println("Github name:madushankcwa");
 			System.out.println("------------------------------------");
 			System.out.println("K C Samarasinghe");
-			System.out.println("NSBM No :BSC-UCD-CSS-B03-061");
+			System.out.println("NSBM No :BSC-UCD-CSS-B03-073");
 			System.out.println("Index No :13208358");
 			System.out.println("Github name:chanukakcwa");
 			System.out.println("------------------------------------");
 			System.out.println("I R C N BANDARA ILANGASINGHE");
 			System.out.println("NSBM No :BSC-UCD-CSS-B03-061");
-			System.out.println("Index No :13208383");
+			System.out.println("Index No :13208296");
 			System.out.println("Github name:chanakakcwa");
 			main.getInput("\nplease enter any key to continue");
 			break;
